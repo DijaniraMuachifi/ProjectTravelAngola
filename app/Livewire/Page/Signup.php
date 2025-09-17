@@ -8,6 +8,8 @@ class Signup extends Component
 {
     public function render()
     {
+
+        
         return view('livewire.page.signup');
     }
 }
