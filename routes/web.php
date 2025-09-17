@@ -10,11 +10,22 @@ use App\Livewire\Page\Signup;
 use App\Livewire\Page\Welcome;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ProvinciaController;
+
+
 Route::get('/', Welcome::class)->name('welcome');
 Route::get('/search', Search::class)->name('search');
 Route::get('/about', About::class)->name('about');
 Route::get('/contact', Contact::class)->name('contact');
 Route::get('/destination', Destination::class)->name('destination');
-Route::get('login', Login::class)->name('login');
-Route::get('register', Signup::class)->name('register');
-Route::get('hotel', Acomodation::class)->name('hotel');
+Route::get('/login', Login::class)->name('login');
+Route::get('/register', Signup::class)->name('register');
+Route::get('/hotel', Acomodation::class)->name('hotel');
+
+//gerir provincia
+Route::get('/lista/provincia', [ProvinciaController::class, 'index'])->name('provincia.index');
+
+//painel administrativo
+
+Route::get('/provincia/ver',[ProvinciaController::class, 'dashboard'])->name('dashboard1');
+Route::post('/provincia/store',[ProvinciaController::class, 'store'])->name('provincia.store');

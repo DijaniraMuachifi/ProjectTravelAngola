@@ -12,13 +12,17 @@ use App\Models\Provincia;
 use App\Models\Rotas;
 use Livewire\Component;
 
+
 class Welcome extends Component
 {
     public $origin, $destination, $checkin_date, $chechout_datecheckin_date,$destino, $data1, $data2;
     public $provincias=[],$results=[],$search=false,$hotel=false;
 
     public function  mount(){
+
+
         $this->provincias=Provincia::all();
+
     }
     public function render()
     {
