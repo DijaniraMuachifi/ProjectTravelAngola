@@ -18,8 +18,8 @@ Route::get('/search', Search::class)->name('search');
 Route::get('/about', About::class)->name('about');
 Route::get('/contact', Contact::class)->name('contact');
 Route::get('/destination', Destination::class)->name('destination');
-Route::get('/login', Login::class)->name('login');
-Route::get('/register', Signup::class)->name('register');
+Route::get('/login1', Login::class)->name('login');
+Route::get('/register1', Signup::class)->name('register');
 Route::get('/hotel', Acomodation::class)->name('hotel');
 
 //gerir provincia
@@ -29,3 +29,13 @@ Route::get('/lista/provincia', [ProvinciaController::class, 'index'])->name('pro
 
 Route::get('/provincia/ver',[ProvinciaController::class, 'dashboard'])->name('dashboard1');
 Route::post('/provincia/store',[ProvinciaController::class, 'store'])->name('provincia.store');
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
