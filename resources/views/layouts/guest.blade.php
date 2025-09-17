@@ -22,11 +22,14 @@
     @livewireStyles
 </head>
 
-<body>
-    <div class="font-sans text-gray-900 antialiased">
-        {{ $slot }}
-    </div>
+<body style="background-image: url('{{ asset('images/IMG_5472.webp') }}');">
+    <div class="container">
+        <div class="font-sans text-gray-900 antialiased">
+            {{ $slot }}
+        </div>
 
+        @yield('login')
+    </div>
     @livewireScripts
 </body>
 

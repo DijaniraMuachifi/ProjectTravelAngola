@@ -17,12 +17,22 @@ Route::get('/', Welcome::class)->name('welcome');
 Route::get('/search', Search::class)->name('search');
 Route::get('/about', About::class)->name('about');
 Route::get('/contact', Contact::class)->name('contact');
-Route::get('/destination', Destination::class)->name('destination');
+
 Route::get('/login1', Login::class)->name('login1');
 Route::get('/register1', Signup::class)->name('register1');
 Route::get('/hotel', Acomodation::class)->name('hotel');
 
-//gerir provincia
+
+
+
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+
+    //gerir provincia
 Route::get('/lista/provincia', [ProvinciaController::class, 'index'])->name('provincia.index');
 
 //painel administrativo
@@ -30,11 +40,10 @@ Route::get('/lista/provincia', [ProvinciaController::class, 'index'])->name('pro
 Route::get('/provincia/ver',[ProvinciaController::class, 'dashboard'])->name('dashboard1');
 Route::post('/provincia/store',[ProvinciaController::class, 'store'])->name('provincia.store');
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
+
+Route::get('/destination', Destination::class)->name('destination');
+
+
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
