@@ -18,8 +18,8 @@ Route::get('/search', Search::class)->name('search');
 Route::get('/about', About::class)->name('about');
 Route::get('/contact', Contact::class)->name('contact');
 Route::get('/destination', Destination::class)->name('destination');
-Route::get('/login1', Login::class)->name('login');
-Route::get('/register1', Signup::class)->name('register');
+Route::get('/login1', Login::class)->name('login1');
+Route::get('/register1', Signup::class)->name('register1');
 Route::get('/hotel', Acomodation::class)->name('hotel');
 
 //gerir provincia

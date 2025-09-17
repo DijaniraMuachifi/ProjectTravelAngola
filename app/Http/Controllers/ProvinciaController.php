@@ -11,7 +11,7 @@ class ProvinciaController extends Controller
 {
     //show provincias
     public function index(){
-         
+
          try {
             //bucando lista de provincias
             $resposta=Http::get('https://angolaprovinciasapi.ggwp.com.br/api/v1/provincias');
@@ -21,14 +21,12 @@ class ProvinciaController extends Controller
               if($dados->success){
                    $provincias=$dados->data;
  
+                 
                    dd($provincias);
                    return view('Livewire.Page.Welcome', compact('$provincias'));
               }else{
                   dd('conexão falhou');
               }
-
-
-
          } catch (\GuzzleHttp\Exception\RequestException $th) {
             //throw $th;
             return $th;
@@ -51,11 +49,15 @@ class ProvinciaController extends Controller
                 $verificar=Provincia::create([
                 'name'=>$request->name
             ]);
+                   alert($verificar['name'],"Provincia registada","info");
+
             return redirect()->route('dashboard1');
         }else{
+              alert($request->name,"Provincia já foi registada","warning");
        return redirect()->back();
-        }
-            
+        }        
         
     }
+
+
 }
