@@ -13,7 +13,7 @@ class ProvinciaController extends Controller
     public function index(){
          
          try {
-            //bucando lista de provincias
+            //bucando lista de provincias em uma api
             $resposta=Http::get('https://angolaprovinciasapi.ggwp.com.br/api/v1/provincias');
 
               $dados= json_decode($resposta->getBody()->getContents());
@@ -24,14 +24,12 @@ class ProvinciaController extends Controller
                    dd($provincias);
                    return view('Livewire.Page.Welcome', compact('$provincias'));
               }else{
-                  dd('conexão falhou');
+                  dd('conecta seu computador a internete');
               }
-
-
 
          } catch (\GuzzleHttp\Exception\RequestException $th) {
             //throw $th;
-            return $th;
+            dd('Erro de conexão, verifica sua ligação a internete');
          }
          
     }
