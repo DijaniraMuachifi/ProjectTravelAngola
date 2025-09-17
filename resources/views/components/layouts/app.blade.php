@@ -33,6 +33,7 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar {{ isset($title) && $title == 'Resultados da Pesquisa' ? 'bg-primary' : 'bg-dark' }} ftco-navbar-light"
         id="ftco-navbar">
 
