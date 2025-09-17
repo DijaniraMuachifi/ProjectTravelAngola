@@ -50,7 +50,7 @@
                     <li class="nav-item"><a href="{{ route('hotel') }}" class="nav-link">Hotel</a></li>
                     <li class="nav-item"><a href="{{ route('about') }}" class="nav-link">About Us</a></li>
                     <li class="nav-item"><a href="{{ route('contact') }}" class="nav-link">Contact Us</a></li>
-                    <li class="nav-item"><a href="{{ route('dashboard1') }}" class="nav-link">Dasboard</a></li>
+                    <li class="nav-item"><a href="{{ route('dashboard1') }}" class="nav-link">Provincia</a></li>
 
 
 
