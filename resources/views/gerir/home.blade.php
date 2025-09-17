@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="{{asset('css/painel.css')}}">
 </head>
 <body>
+         @include('sweetalert::alert')
       <div class="row">
            <div class="col-2" id="menu-left">
                      <ul>
@@ -22,6 +23,7 @@
                                       <li><a href="">Listar</a></li>
                                   </ul>-->
                            </li>
+                            <li><i class="bi bi-person-gear"></i> <a href="{{ route('profile.show') }}">Profile</a></li>
                           <li><a href="">User</a></li>
                           <li class="definicao"><a href="">Definição</a></li>
 

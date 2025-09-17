@@ -33,6 +33,7 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar {{ isset($title) && $title == 'Resultados da Pesquisa' ? 'bg-primary' : 'bg-dark' }} ftco-navbar-light"
         id="ftco-navbar">
 
@@ -50,7 +51,9 @@
                     <li class="nav-item"><a href="{{ route('hotel') }}" class="nav-link">Hotel</a></li>
                     <li class="nav-item"><a href="{{ route('about') }}" class="nav-link">About Us</a></li>
                     <li class="nav-item"><a href="{{ route('contact') }}" class="nav-link">Contact Us</a></li>
-                    <li class="nav-item"><a href="{{ route('dashboard1') }}" class="nav-link">Provincia</a></li>
+                 
+                    <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
+
 
 
 
