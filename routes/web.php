@@ -11,7 +11,8 @@ use App\Livewire\Page\Welcome;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ProvinciaController;
-
+use App\Models\Provincia;
+use App\Models\User;
 
 Route::get('/', Welcome::class)->name('welcome');
 Route::get('/search', Search::class)->name('search');
@@ -45,6 +46,9 @@ Route::get('/destination', Destination::class)->name('destination');
 
 
     Route::get('/dashboard', function () {
-        return view('dashboard');
+
+        $cprov=Provincia::count();
+        $cuser=User::count();
+        return view('dashboard',compact('cprov','cuser'));
     })->name('dashboard');
 });

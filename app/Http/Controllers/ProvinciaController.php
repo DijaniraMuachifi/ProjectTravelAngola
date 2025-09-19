@@ -42,7 +42,7 @@ class ProvinciaController extends Controller
     
            $provincias=Provincia::get();
            $pcount=Provincia::count();
-        return view('gerir.home', compact('provincias','pcount'));
+        return view('gerir.provincia', compact('provincias','pcount'));
     }
 
     public function store(provinciarequest $request){
