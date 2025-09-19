@@ -51,8 +51,16 @@
                     <li class="nav-item"><a href="{{ route('hotel') }}" class="nav-link">Hotel</a></li>
                     <li class="nav-item"><a href="{{ route('about') }}" class="nav-link">About Us</a></li>
                     <li class="nav-item"><a href="{{ route('contact') }}" class="nav-link">Contact Us</a></li>
-                 
-                    <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
+                    @if (Route::has('login'))
+                    @auth
+                    <li class="nav-item"> <a href="{{ url('/dashboard') }}" class="nav-link">Dashboard</a></li>
+                    @else
+                    <li class="nav-item"> <a href="{{ route('login') }}" class="nav-link">Login</a></li>
+                    @if (Route::has('register'))
+                    <li class="nav-item"> <a href="{{ route('profile.show') }}" class="nav-link">Profile</a></li>
+                    @endif
+                    @endauth
+                    @endif
 
 
 
