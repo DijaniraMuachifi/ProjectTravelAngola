@@ -22,6 +22,7 @@ Route::get('/contact', Contact::class)->name('contact');
 Route::get('/login1', Login::class)->name('login1');
 Route::get('/register1', Signup::class)->name('register1');
 Route::get('/hotel', Acomodation::class)->name('hotel');
+Route::get('/destination', Destination::class)->name('destination');
 
 
 
@@ -40,9 +41,6 @@ Route::get('/lista/provincia', [ProvinciaController::class, 'index'])->name('pro
 
 Route::get('/provincia/ver',[ProvinciaController::class, 'dashboard'])->name('dashboard1');
 Route::post('/provincia/store',[ProvinciaController::class, 'store'])->name('provincia.store');
-
-
-Route::get('/destination', Destination::class)->name('destination');
 
 
     Route::get('/dashboard', function () {
