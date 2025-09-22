@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -15,13 +16,6 @@ class visitante
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::user()->isVisitante)
-             return $next($request);
-        else{
-
-            alert(Auth::user()->name,'Sem autorização','info');
-
-            return redirect()->back();
-        }
+           return $next($request);
     }
 }

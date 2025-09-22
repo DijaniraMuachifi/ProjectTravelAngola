@@ -26,8 +26,6 @@ Route::get('/destination', Destination::class)->name('destination');
 
 
 
-
-
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -39,14 +37,22 @@ Route::get('/lista/provincia', [ProvinciaController::class, 'index'])->name('pro
 
 //painel administrativo
 
-Route::get('/provincia/ver',[ProvinciaController::class, 'dashboard'])->name('dashboard1');
-Route::post('/provincia/store',[ProvinciaController::class, 'store'])->name('provincia.store');
-
-
-    Route::get('/dashboard', function () {
+ Route::get('/dashboard', function () {
 
         $cprov=Provincia::count();
         $cuser=User::count();
         return view('dashboard',compact('cprov','cuser'));
     })->name('dashboard');
+
+
+
+        Route::get('/provincia/ver',[ProvinciaController::class, 'dashboard'])->name('dashboard1');
+        Route::post('/provincia/store',[ProvinciaController::class, 'store'])->name('provincia.store');
+
+
+        
+               
+    
+
+    
 });
