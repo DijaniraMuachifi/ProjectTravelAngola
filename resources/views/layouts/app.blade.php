@@ -57,7 +57,7 @@
                         </ul>
                     </li>
                @if(Auth::user() && Auth::user()->isAdmin)
-                    <li><a href="#"><i class="fas fa-users"></i> <span>Utilizadores</span></a></li>
+                    <li><a href="{{route('user.index')}}"><i class="fas fa-users"></i> <span>Utilizadores</span></a></li>
                     <li><a href="#"><i class="fas fa-chart-line"></i> <span>Relatórios</span></a></li>
                     <li><a href="#"><i class="fas fa-cogs"></i> <span>Configurações</span></a></li>
                     @endif
@@ -76,7 +76,15 @@
                 </button>
 
                 <div class="header-content">
-                    <h2>Bem-vindo, Administrador</h2>
+                    <h2>
+                          Bem-vindo, 
+                      @if(Auth::user()->isAdmin)    
+                            Administrador
+                      @elseif(Auth::user()->isCliente)
+                            Cliente 
+                      @endif
+
+                </h2>
 
                     <div class="user-info">
                         <div class="hidden sm:flex sm:items-center sm:ms-6">

@@ -10,7 +10,7 @@ use App\Livewire\Page\Signup;
 use App\Livewire\Page\Welcome;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\ProvinciaController;
+use App\Http\Controllers\{ProvinciaController};
 use App\Http\Middleware\admin;
 use App\Models\{Provincia,Accommodatio};
 use App\Models\User;
@@ -53,6 +53,9 @@ Route::middleware(admin::class)->group(function(){
         Route::get('/lista/provincia', [ProvinciaController::class, 'index'])->name('provincia.index');
         Route::get('/provincia/ver',[ProvinciaController::class, 'dashboard'])->name('dashboard1');
         Route::post('/provincia/store',[ProvinciaController::class, 'store'])->name('provincia.store');
+
+        //gerir user
+        Route::get('/user/view',[ProvinciaController::class, 'verUser'])->name('user.index');
 
 });
 
