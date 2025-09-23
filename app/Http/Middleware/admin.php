@@ -17,8 +17,13 @@ class admin
      */
     public function handle(Request $request, Closure $next): Response
     {
-    
+
+        if(Auth::user() && Auth::user()->isAdmin)
             return $next($request);
+        else{
+            alert('Autorização','Acesso Negado','error');
+            return redirect()->back();
+        }
      
    
     }

@@ -16,6 +16,11 @@ class visitante
      */
     public function handle(Request $request, Closure $next): Response
     {
-           return $next($request);
+        if(Auth::user() && Auth::user()->isVisitante)
+            return $next($request);
+        else{
+            alert('Autorização','Acesso Negado','error');
+            return redirect()->back();
+        }
     }
 }

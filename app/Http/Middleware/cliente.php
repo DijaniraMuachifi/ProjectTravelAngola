@@ -16,6 +16,11 @@ class cliente
      */
     public function handle(Request $request, Closure $next): Response
     {
-       return $next($request);
+         if(Auth::user() && Auth::user()->isCliente)
+            return $next($request);
+        else{
+            alert('Autorização','Acesso Negado/criar uma conta cliente','error');
+            return redirect()->back();
+        }
     }
 }
