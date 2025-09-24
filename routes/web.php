@@ -10,20 +10,20 @@ use App\Livewire\Page\Signup;
 use App\Livewire\Page\Welcome;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\ProvinciaController;
-use App\Models\Provincia;
+use App\Http\Controllers\{ProvinciaController};
+use App\Http\Middleware\admin;
+use App\Models\{Provincia,Accommodatio};
 use App\Models\User;
 
 Route::get('/', Welcome::class)->name('welcome');
-Route::get('/search', Search::class)->name('search');
+
 Route::get('/about', About::class)->name('about');
 Route::get('/contact', Contact::class)->name('contact');
 
 Route::get('/login1', Login::class)->name('login1');
 Route::get('/register1', Signup::class)->name('register1');
 Route::get('/hotel', Acomodation::class)->name('hotel');
-
-
+Route::get('/destination', Destination::class)->name('destination');
 
 
 
@@ -33,22 +33,37 @@ Route::middleware([
     'verified',
 ])->group(function () {
 
-    //gerir provincia
-Route::get('/lista/provincia', [ProvinciaController::class, 'index'])->name('provincia.index');
+    
 
 //painel administrativo
 
-Route::get('/provincia/ver',[ProvinciaController::class, 'dashboard'])->name('dashboard1');
-Route::post('/provincia/store',[ProvinciaController::class, 'store'])->name('provincia.store');
-
-
-Route::get('/destination', Destination::class)->name('destination');
-
-
-    Route::get('/dashboard', function () {
+ Route::get('/dashboard', function () {
 
         $cprov=Provincia::count();
         $cuser=User::count();
+     //   $chotel=Accommodation::count();
+
         return view('dashboard',compact('cprov','cuser'));
     })->name('dashboard');
+
+
+Route::middleware(admin::class)->group(function(){
+
+        //gerir provincia
+        Route::get('/lista/provincia', [ProvinciaController::class, 'index'])->name('provincia.index');
+        Route::get('/provincia/ver',[ProvinciaController::class, 'dashboard'])->name('dashboard1');
+        Route::post('/provincia/store',[ProvinciaController::class, 'store'])->name('provincia.store');
+
+        //gerir user
+        Route::get('/user/view',[ProvinciaController::class, 'verUser'])->name('user.index');
+
+});
+
+
+    
+});
+
+Route::middleware('cliente')->group(function(){
+        Route::get('/search', Search::class)->name('search');
+
 });

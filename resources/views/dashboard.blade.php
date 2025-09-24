@@ -18,10 +18,7 @@
                     <h4>Hotéis Registados</h4>
                     <p class="stat-number">56</p>
                 </div>
-                <div class="card">
-                    <h4>Rotas Populares</h4>
-                    <p class="stat-number">10</p>
-                </div>
+                
             </div>
 
             <div class="charts-section">

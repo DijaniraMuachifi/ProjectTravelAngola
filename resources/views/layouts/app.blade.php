@@ -47,16 +47,20 @@
                     <li class="dropdown">
                         <a href="#"><i class="fas fa-folder-open"></i> <span>Gestão de Conteúdo</span> <span class="arrow">&#9660;</span></a>
                         <ul class="submenu">
+                            @if(Auth::user() && Auth::user()->isAdmin)
                             <li><a href="{{route('dashboard1')}}"><i class="fas fa-map"></i> Províncias</a></li>
+                         
                             <li><a href="#"><i class="fas fa-route"></i> Rotas</a></li>
                             <li><a href="#"><i class="fas fa-camera-retro"></i> Atrações</a></li>
                             <li><a href="#"><i class="fas fa-hotel"></i> Hotéis</a></li>
+                           @endif
                         </ul>
                     </li>
-
-                    <li><a href="#"><i class="fas fa-users"></i> <span>Utilizadores</span></a></li>
+               @if(Auth::user() && Auth::user()->isAdmin)
+                    <li><a href="{{route('user.index')}}"><i class="fas fa-users"></i> <span>Utilizadores</span></a></li>
                     <li><a href="#"><i class="fas fa-chart-line"></i> <span>Relatórios</span></a></li>
                     <li><a href="#"><i class="fas fa-cogs"></i> <span>Configurações</span></a></li>
+                    @endif
                 </ul>
             </nav>
         </aside>
@@ -72,7 +76,15 @@
                 </button>
 
                 <div class="header-content">
-                    <h2>Bem-vindo, Administrador</h2>
+                    <h2>
+                          Bem-vindo, 
+                      @if(Auth::user()->isAdmin)    
+                            Administrador
+                      @elseif(Auth::user()->isCliente)
+                            Cliente 
+                      @endif
+
+                </h2>
 
                     <div class="user-info">
                         <div class="hidden sm:flex sm:items-center sm:ms-6">

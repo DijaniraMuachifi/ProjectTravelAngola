@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Http\Requests\provinciarequest;
-use App\Models\Provincia;
+use App\Models\{User,Provincia};
 
 class ProvinciaController extends Controller
 {
@@ -60,6 +60,13 @@ class ProvinciaController extends Controller
        return redirect()->back();
         }        
         
+    }
+
+    public function verUser(){
+
+        $users=User::get();
+
+        return view('gerir.user',compact('users'));
     }
 
 

@@ -49,7 +49,7 @@
                     <li class="nav-item active"><a href="{{ route('welcome') }}" class="nav-link">Home</a></li>
                     <li class="nav-item"><a href="{{ route('destination') }}" class="nav-link">Destinations</a></li>
                     <li class="nav-item"><a href="{{ route('hotel') }}" class="nav-link">Hotel</a></li>
-                    <li class="nav-item"><a href="{{ route('about') }}" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="{{ route('about') }}" class="nav-link">AboutUs</a></li>
                     <li class="nav-item"><a href="{{ route('contact') }}" class="nav-link">Contact Us</a></li>
                     @if (Route::has('login'))
                     @auth
