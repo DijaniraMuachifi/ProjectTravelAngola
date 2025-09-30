@@ -19,7 +19,7 @@ class visitante
         if(Auth::user() && Auth::user()->isVisitante)
             return $next($request);
         else{
-            alert('Autorização','Acesso Negado','error');
+            alert('Authorization','Access danied','error');
             return redirect()->back();
         }
     }

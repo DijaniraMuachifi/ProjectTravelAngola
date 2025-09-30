@@ -4,7 +4,7 @@
 
 
         <div class="crud-controls">
-            <button class="add-btn" id="add-province-btn"><i class="fas fa-plus"></i> Adicionar Província</button>
+            <button class="add-btn" id="add-province-btn"><i class="fas fa-plus"></i> Register Province</button>
         </div>
 
         <div class="content-table-container">
@@ -12,8 +12,8 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Nome da Província</th>
-                        <th>Data de registo</th>
+                        <th>Name Province</th>
+                        <th>Date Created</th>
                     </tr>
                 </thead>
                 <tbody id="provinces-tbody1">
@@ -38,18 +38,18 @@
         <div id="crud-modal" class="modal">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 id="modal-title">Registar Província</h4>
+                    <h4 id="modal-title">Register Province</h4>
                     <span class="close-btn">&times;</span>
                 </div>
                 <form id="crud-form" action="{{route('provincia.store')}}" method="POST">
                     @csrf
                     <input type="hidden" id="province-id">
                     <div class="form-group">
-                        <label for="name">Nome da Província:</label>
+                        <label for="name">Name Province:</label>
                         <input type="text" id="name" name="name" required>
                     </div>
 
-                    <button type="submit" id="submit-btn" class="submit-btn">Salvar</button>
+                    <button type="submit" id="submit-btn" class="submit-btn">Save</button>
                 </form>
             </div>
         </div>

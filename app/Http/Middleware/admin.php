@@ -21,7 +21,7 @@ class admin
         if(Auth::user() && Auth::user()->isAdmin)
             return $next($request);
         else{
-            alert('Autorização','Acesso Negado','error');
+            alert('Authorization','Access Denied','error');
             return redirect()->back();
         }
      

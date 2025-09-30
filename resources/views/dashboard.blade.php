@@ -2,20 +2,20 @@
      @section('center')
 
      <div class="section-header">
-                <h3>Resumo Geral</h3>
+                <h3>General Summary</h3>
             </div>
             
             <div class="stats-cards">
                 <div class="card">
-                    <h4>Total de Province</h4>
+                    <h4>Total Province</h4>
                     <p class="stat-number">{{$cprov}}</p>
                 </div>
                 <div class="card">
-                    <h4>Novos Utilizadores</h4>
+                    <h4>New Users</h4>
                     <p class="stat-number">{{$cuser}}</p>
                 </div>
                 <div class="card">
-                    <h4>Hotéis Registados</h4>
+                    <h4>Hotels Registers</h4>
                     <p class="stat-number">56</p>
                 </div>
                 
@@ -23,11 +23,11 @@
 
             <div class="charts-section">
                 <div class="chart-container">
-                    <h4>Reservas por Mês</h4>
+                    <h4>Reservas per Month</h4>
                     <canvas id="monthlyBookingsChart"></canvas>
                 </div>
                 <div class="chart-container">
-                    <h4>Atrações mais Visitadas</h4>
+                    <h4>Most visited Attractions</h4>
                     <canvas id="topAttractionsChart"></canvas>
                 </div>
             </div>

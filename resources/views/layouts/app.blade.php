@@ -45,21 +45,21 @@
                     <li><a href="{{ route('dashboard') }}" class="active"><i class="fas fa-home"></i> <span>Dashboard</span></a></li>
 
                     <li class="dropdown">
-                        <a href="#"><i class="fas fa-folder-open"></i> <span>Gestão de Conteúdo</span> <span class="arrow">&#9660;</span></a>
+                        <a href="#"><i class="fas fa-folder-open"></i> <span>Content Management</span> <span class="arrow">&#9660;</span></a>
                         <ul class="submenu">
                             @if(Auth::user() && Auth::user()->isAdmin)
-                            <li><a href="{{route('dashboard1')}}"><i class="fas fa-map"></i> Províncias</a></li>
+                            <li><a href="{{route('dashboard1')}}"><i class="fas fa-map"></i> Provinces</a></li>
                          
-                            <li><a href="#"><i class="fas fa-route"></i> Rotas</a></li>
-                            <li><a href="#"><i class="fas fa-camera-retro"></i> Atrações</a></li>
-                            <li><a href="#"><i class="fas fa-hotel"></i> Hotéis</a></li>
+                            <li><a href="#"><i class="fas fa-route"></i> Route</a></li>
+                            <li><a href="#"><i class="fas fa-camera-retro"></i> Attractions</a></li>
+                            <li><a href="#"><i class="fas fa-hotel"></i> Hotels</a></li>
                            @endif
                         </ul>
                     </li>
                @if(Auth::user() && Auth::user()->isAdmin)
-                    <li><a href="{{route('user.index')}}"><i class="fas fa-users"></i> <span>Utilizadores</span></a></li>
-                    <li><a href="#"><i class="fas fa-chart-line"></i> <span>Relatórios</span></a></li>
-                    <li><a href="#"><i class="fas fa-cogs"></i> <span>Configurações</span></a></li>
+                    <li><a href="{{route('user.index')}}"><i class="fas fa-users"></i> <span>Users</span></a></li>
+                    <li><a href="#"><i class="fas fa-chart-line"></i> <span>Reports</span></a></li>
+                    <li><a href="{{route('profile.show')}}"><i class="fas fa-cogs"></i> <span>Settings</span></a></li>
                     @endif
                 </ul>
             </nav>
@@ -77,11 +77,11 @@
 
                 <div class="header-content">
                     <h2>
-                          Bem-vindo, 
+                          Welcome, 
                       @if(Auth::user()->isAdmin)    
-                            Administrador
+                            Administrator
                       @elseif(Auth::user()->isCliente)
-                            Cliente 
+                            Customer 
                       @endif
 
                 </h2>

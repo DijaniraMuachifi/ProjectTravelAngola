@@ -19,7 +19,7 @@ class cliente
          if(Auth::user() && Auth::user()->isCliente)
             return $next($request);
         else{
-            alert('Autorização','Acesso Negado/criar uma conta cliente','error');
+            alert('Authorization','Access Danied/create customer account','error');
             return redirect()->back();
         }
     }

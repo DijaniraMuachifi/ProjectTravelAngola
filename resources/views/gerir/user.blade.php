@@ -5,7 +5,7 @@
 
 
         <div class="crud-controls">
-            <button class="add-btn" id="add-province-btn"><i class="fas fa-plus"></i> Lista de Utilizadores</button>
+            <button class="add-btn" id="add-province-btn"><i class="fas fa-plus"></i>List Users</button>
         </div>
 
         <div class="content-table-container">
